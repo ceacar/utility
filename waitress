@@ -1,0 +1,25 @@
+#!/bin/bash
+#1 is the pid of the subprocess
+#2 is the the max waiting time for next check
+#3 is the name of the subprocess for recognition purpose
+PID=${1:?pid not set}
+sleep_max=10
+[[ "$2" ]] && sleep_max=$2
+subprocess_name=$3
+[[ "$3" ]] && subprocess_name="$3" || subprocess_name="Process"
+still_running_msg="$subprocess_name: $PID is still running"
+finish_msg="$subprocess_name: $PID has finished"
+set -fueo pipefail
+sleep_time=1
+while [ -e /proc/$PID ]
+do
+    echo "$still_running_msg"  
+    sleep $sleep_time
+
+    #doulbe the sleep time if process is still running
+    let sleep_time=$sleep_time*2
+    if [ $sleep_time -gt $sleep_max ];then
+      sleep_time=$sleep_max
+    fi
+done
+echo "$finish_msg"
