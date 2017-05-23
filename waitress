@@ -7,8 +7,8 @@ sleep_max=10
 [[ "$2" ]] && sleep_max=$2
 subprocess_name=$3
 [[ "$3" ]] && subprocess_name="$3" || subprocess_name="Process"
-still_running_msg="$subprocess_name: $PID is still running"
-finish_msg="$subprocess_name: $PID has finished"
+still_running_msg="$subprocess_name[$PID] is still running"
+finish_msg="$subprocess_name[$PID] has finished"
 set -fueo pipefail
 sleep_time=1
 while [ -e /proc/$PID ]
