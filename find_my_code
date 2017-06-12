@@ -1,0 +1,2 @@
+#!/bin/bash
+#this script will search all directory defined in env var my_source_code_dir and find any code contains the keyword
