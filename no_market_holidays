@@ -213,6 +213,7 @@ def datetime_rescue(date_input):
 
 def filter_dates(converted_holidays):
     for date_raw_str in sys.stdin:
+        date_raw_str = date_raw_str.rstrip()
         try:
             converted_input_date = parser.parse(date_raw_str).date()
         except:
