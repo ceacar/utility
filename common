@@ -1,0 +1,9 @@
+#!/bin/bash
+function echo_lv(){
+  local echo_level=${1:?level is not provided for $FUNCNAME}
+  local echo_content=${@:2}
+  local echo_delim='\t'
+  [[ $echo_level -lt 1 ]] && { echo "level has to be greater than 1"; return 1; }
+  printf "$echo_delim%.0s" $(seq $echo_level)
+  echo "$echo_content"
+}
