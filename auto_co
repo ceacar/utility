@@ -1,0 +1,16 @@
+#!/bin/bash
+#should parse file automatically and navigate to its directory
+#set -xv
+file_to_be_picked_up=~/Documents/pickup
+{
+current_date=$(date '+%Y%m%d')
+for f in $(find $file_to_be_picked_up -type f|grep "${current_date}$");do
+  cat $f|grep taq && cd ~/taq/
+  cat $f|while read cmd;do
+    #echo "$cmd"
+    eval $cmd
+  done
+done
+
+mv $f $f.done
+} 2>&1 |tee $file_to_be_picked_up/$current_date.log
