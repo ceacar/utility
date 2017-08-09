@@ -2,6 +2,7 @@
 #1 is the pid of the subprocess
 #2 is the the max waiting time for next check
 #3 is the name of the subprocess for recognition purpose
+set +u
 PID=${1:?pid not set}
 sleep_max=10
 [[ "$2" ]] && sleep_max=$2
