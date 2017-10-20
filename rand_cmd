@@ -2,9 +2,9 @@
 #/dev/pts/1 20170717 17:15:27 ls
 function do_ran(){
   lottery=$(shuf -i 1-5000 -n 1)
-  cat ~/.persistent_history|tail -$lottery|head -1| while read path_prex date_string time_string cmd_string;do
+  cat ~/.persis_history/persistent_history|tail -$lottery|head -1| while read path_prex date_string time_string cmd_string;do
     now_date_string=$(date '+%Y%m%d %H:%M:%S')
-    echo "$path_prex $now_date_string $cmd_string" >> ~/.persistent_history
+    echo "$path_prex $now_date_string $cmd_string" >> ~/.persis_history/persistent_history
   done
 }
 
