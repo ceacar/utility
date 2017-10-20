@@ -6,6 +6,6 @@ code_signature=${1:?code_signature empty}
 IFS=:
 for tmp_path in $MY_SOURCE_CODE_DIR;do
   echo "searching $tmp_path"
-  find $tmp_path -type f | grep -v ".git"|head|parallel "cat {}|grep -C 2 \"$code_signature\" && echo \"-------------\""
+  find $tmp_path -type f | grep -v ".git"|parallel "cat {}|grep -C 2 \"$code_signature\" && echo \"-------------\""
 done
 
