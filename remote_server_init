@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#source this script and manually execute commands
+function executeRemoteCmd(){
+  [[ "$1" == "-h" ]] && { echo "$FUNCNAME [ip] [user_name]";return 1; }
+  local ip=${1:?ip not set in $FUNCNAME}
+  local user_name=${2:?user_name not set in $FUNCNAME}
+  local cmd=${3:?cmd not set in $FUNCNAME}
+  ssh -o ConnectTimeout=2 $user_name@$ip $cmd
+}
+
+function shipMyProjects(){
+  local ip=${1:?ip not set in $FUNCNAME}
+  local user_name=${2:?user_name not set in $FUNCNAME}
+  local the_path=${3:?path not set, white space deliminited}
+  for path_temp in $the_path;do
+    executeRemoteCmd $ip $user_name "mkdir -p ~/$path_temp"
+    rsync -az $path/$path_temp/ $user_name@$ip:/$user_name/$path_temp/
+    echo "rsync -az $path/$path_temp/ $user_name@$ip:/$user_name/$path_temp/"
+  done
+}
+function deploy_instance(){(
+  set -fueo pipefail
+  local ip=${1:?ip not set in $FUNCNAME}
+  local user_name=${2:?user_name not set in $FUNCNAME}
+  #shipMyProjects $ip $user_name
+  executeRemoteCmd $ip $user_name "mkdir -p ~/projects;git clone https://github.com/ceacar/ceacar_settings.git ~/projects/ceacar_settings"
+  echo "init ceacar setting"
+  executeRemoteCmd $ip $user_name "cd ~/projects/ceacar_settings/;sudo ./init_host"
+)}
+
