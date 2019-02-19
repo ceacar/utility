@@ -1,4 +1,4 @@
-def _get_gzip_uncompressed_file_size(file_name):
+def get_gzip_uncompressed_file_size(file_name):
     """
     this function will return the uncompressed size of a gzip file
     similar as gzip -l file_name

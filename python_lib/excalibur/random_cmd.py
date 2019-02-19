@@ -355,17 +355,14 @@ import os
 import sys
 import time
 import random
-cmd_array = cmd_list.split('\n')
-length = len(cmd_array)
-selected_index = random.randint(1,length)
-#def convert_cmd_to_xdotool_cmd(cmd_input):
-#    splitted = cmd_input.split()
-#    cmd_final = ""
-#    for cmd in splitted:
-#        cmd_final = cmd_final + ' '.join(cmd) + ' KP_Space '
-#    cmd_final = cmd_final + 'KP_Enter'
-#    return cmd_final
-#selected_cmd = convert_cmd_to_xdotool_cmd(cmd_array[selected_index])
-selected_cmd = cmd_array[selected_index] + '\n'
-print(selected_cmd)
-time.sleep(0.1)
+__cmd_array = cmd_list.split('\n')
+
+def select_random_cmd():
+    time.sleep(0.1)
+    length = len(__cmd_array)
+    selected_index = random.randint(1,length)
+    selected_cmd = __cmd_array[selected_index] + '\n'
+    return(selected_cmd)
+
+if __name__ == '__main__':
+    print(selected_cmd())

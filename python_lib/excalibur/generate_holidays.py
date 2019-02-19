@@ -255,6 +255,10 @@ class NYSEMarketHoliday(HolidayBase):
             elif self.observed and date(self.populating_year, 12, 25).weekday() == 6:
                 self[date(self.populating_year, 12, 25) + rd(days=+1)] = name + " (Observed)"
 
+def gen_nyse_holidays(year: int) -> [datetime.date]:
+    holidays = NYSEMarketHoliday(years= year, state="NY")
+    return sorted(holidays)
+
 if __name__ == "__main__":
     if len(sys.argv)>1:
         year = int(sys.argv[1])

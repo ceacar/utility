@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-__version__=0.02
 #updated holidays from 2012 -> 2020
 
 import dateutil.parser as parser
@@ -190,7 +189,7 @@ import datetime
 
 def _gen_holidays(start_year, end_year):
     res = []
-    for year in xrange(int(start_year), int(end_year)):
+    for year in range(int(start_year), int(end_year)):
         holidays_date = generate_holidays.NYSEMarketHoliday(years = year, state="NY")
         holidays_str = [ date_object.strftime("%Y%m%d") for date_object in holidays_date]
         #_holidays.extend(generate_holidays.NYSEMarketHoliday(years = year, state="NY"))
@@ -257,4 +256,4 @@ def filter_dates(source_input= sys.stdin, converted_holidays = _holidays):
 if __name__ == "__main__":
    res = filter_dates()
    for single_res in res:
-        print res
+        print(res)

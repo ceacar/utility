@@ -1,7 +1,0 @@
-#!/bin/bash
-time_to_sleep=$(shuf -i 1-6 -n 1)
-echo "sleeping for $time_to_sleep"
-sleep $time_to_sleep
-echo "$time_to_sleep finished"
-
-

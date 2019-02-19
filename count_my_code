@@ -1,2 +1,0 @@
-search_path=${1:?search_path empty}
-find $search_path |grep -v "^\.$"|grep -v __pycache__|grep -v ".*\.swp"|grep -v ".*\.pyc" | parallel cat {} 2>/dev/null|wc -l 2>&1| grep "^.[0-9]*$"
