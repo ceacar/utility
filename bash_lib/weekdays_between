@@ -1,0 +1,36 @@
+#!/bin/bash
+function throwError(){
+  echo -e $1
+  exit 1
+}
+funcName=$(basename "$0")
+[ "$1" == "-h" ] && throwError " \n
+  $funcName [startDate] [endDate] \n
+  example:
+  $funcName 20151201 20160201 \n
+"
+startDate=$1
+endDate=$2
+d=$startDate
+days=$(
+        while [ "$d" != "$endDate" ]; do
+          echo $d
+          d=$(date +%Y%m%d -d "$d + 1 day")
+        done
+      )
+
+year=$(
+        for d in $days;do
+          yr=$(echo $d|cut -c 1-4)
+          echo $yr
+        done|sort -u
+      )
+
+
+for y in $year; do
+  for m in {1..12}; do
+    for d in  `cal -h -m $m $y|tail -n +3|cut -c 1-17|cut -c 4-`; do
+      printf "$y%02d%02d\n" "${m#0}" "${d#0}";
+    done;
+  done;
+done | awk -v sd=$startDate -v ed=$endDate '$1>=sd && $1<ed'

@@ -1,0 +1,11 @@
+#!/bin/bash
+#this script will search all directory defined in env var $MY_SOURCE_CODE_DIR and find any code contains the keyword
+#MY_SOURCE_CODE_DIR="test_path1:test_path2"
+code_signature=${1:?code_signature empty}
+
+IFS=:
+for tmp_path in $MY_SOURCE_CODE_DIR;do
+  echo "searching $tmp_path"
+  find $tmp_path -type f | grep -v ".git"|parallel "cat {}|grep -C 2 \"$code_signature\" && echo \"-------------\""
+done
+

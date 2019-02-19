@@ -1,0 +1,4 @@
+#!/bin/bash
+set -fueo pipefail
+res=$(echo -e "20040705\n 20040706" | ./../no_market_holidays.py)
+[[ "$res" -eq "20040706" ]] && echo "test success" || { echo "test failed"; exit 1; }
