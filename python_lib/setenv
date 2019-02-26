@@ -1,4 +1,0 @@
-project_name="excalibur"
-source ./venv_py3/bin/activate
-export PS1="ex $PS1"
-export PYTHONPATH=$PWD:$PWD/$project_name:$PYTHONPATH
