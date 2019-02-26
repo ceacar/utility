@@ -2,9 +2,8 @@
 #updated holidays from 2012 -> 2020
 
 import dateutil.parser as parser
-import sets
 import sys
-import generate_holidays
+from excalibur import generate_holidays
 import datetime
 
 #holidays=[
@@ -209,7 +208,7 @@ def convert_to_date(holidays):
     for d in holidays:
         #convert to date type
         res.append(parser.parse(d).date())
-    return sets.Set(res)
+    return set(res)
 
 def datetime_rescue(date_input):
     import pandas

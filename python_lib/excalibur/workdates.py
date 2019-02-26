@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 #generate weekdays
-import no_market_holidays
+from excalibur import no_market_holidays
 import sys
 import datetime
 import os
-import generate_holidays
+from excalibur import generate_holidays
 
 __debug = bool(os.environ.get("DEBUG",None))
 
