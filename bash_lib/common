@@ -7,3 +7,14 @@ function echo_lv(){
   printf "$echo_delim%.0s" $(seq $echo_level)
   echo "$echo_content"
 }
+
+function search_code_base(){
+  local search_dir=${1:?search_dir cannot be empty}
+  local code_signature=${2:?code_signature cannot be empty}
+  IFS=:
+  for tmp_path in $search_dir;do
+    echo "searching $tmp_path"
+    find $tmp_path -type f | grep -v ".git\|lodash\|.pyc\|node_modules\|.gradle\|temp"|parallel "cat {}|grep -C 2 \"$code_signature\" && echo \"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<{}\" && echo \"\""
+  done
+}
+

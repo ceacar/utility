@@ -1,0 +1,6 @@
+#!/bin/bash
+#this script will search all notes dir 
+source common
+code=${1:?code_signature empty}
+search_code_base $notes $code
+
