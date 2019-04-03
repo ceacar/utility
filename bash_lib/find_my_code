@@ -6,5 +6,5 @@ list_file_only=${2:false}
 if $list_file_only;then
   search_code_base $MY_SOURCE_CODE_DIR $code
 else
-  find $MY_SOURCE_CODE_DIR $code
+  search_code_base $MY_SOURCE_CODE_DIR $code | grep "<<<"
 fi
