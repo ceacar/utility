@@ -18,7 +18,7 @@ function search_code_base(){
     eval tmp_path=$tmp_path
     echo ">>>searching dir $tmp_path"
     echo ""
-    find $tmp_path -type f | grep -v ".git\|lodash\|.pyc\|node_modules\|.gradle\|temp"|parallel "cat {}|grep -C 2 \"$code_signature\" && echo \"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<{}\" && echo \"\""
+    find $tmp_path -type f | grep -v ".git\|lodash\|.pyc\|node_modules\|.gradle\|temp\|.swp$"|parallel "cat {}|grep -C 2 \"$code_signature\" && echo \"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<{}\" && echo \"\""
   done
 }
 
