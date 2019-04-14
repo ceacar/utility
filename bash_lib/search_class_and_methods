@@ -1,0 +1,10 @@
+#!/bin/bash
+#this script will search all directory defined in env var $MY_SOURCE_CODE_DIR and find any code contains the keyword
+source common
+code=${1:?code_signature empty}
+list_file_only=${2:false}
+if $list_file_only;then
+  find_classes_and_methods $MY_SOURCE_CODE_DIR $code
+else
+  find_classes_and_methods $MY_SOURCE_CODE_DIR $code | grep "<<<"
+fi
