@@ -1,0 +1,17 @@
+#!/bin/bash
+#set -xv
+set -fueo pipefail
+file_name=${1:?file_name cannot be emtpy}
+m1=$(md5 "$file_name")
+while True;do
+  m2=$(md5 "$file_name")
+  if [[ "$m1" != "$m2" ]];then
+    echo "####$file_name changed###" 
+    echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    m1=$(echo $m2)
+    cat $file_name
+    echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+  fi
+  sleep 1
+
+done
