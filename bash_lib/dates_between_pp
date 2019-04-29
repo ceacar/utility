@@ -1,0 +1,8 @@
+#!/bin/bash
+set -feo pipefail
+
+#example input : 20150101   yyyymmdd
+startDate=${1:?startDate cannot be empty}
+endDate=${2:?endDate cannot be empty}
+
+dates_between $startDate $endDate %Y-%m-%d
