@@ -1,0 +1,126 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DummyLogger	sql_server_query_runner.py	/^class DummyLogger():$/;"	c
+HolidayBase	generate_holidays.py	/^class HolidayBase(dict):$/;"	c
+NYSEMarketHoliday	generate_holidays.py	/^class NYSEMarketHoliday(HolidayBase):$/;"	c
+PROVINCES	generate_holidays.py	/^    PROVINCES = []$/;"	v	class:HolidayBase
+__add__	generate_holidays.py	/^    def __add__(self, other):$/;"	m	class:HolidayBase
+__contains__	generate_holidays.py	/^    def __contains__(self, key):$/;"	m	class:HolidayBase
+__eq__	generate_holidays.py	/^    def __eq__(self, other):$/;"	m	class:HolidayBase
+__getitem__	generate_holidays.py	/^    def __getitem__(self, key):$/;"	m	class:HolidayBase
+__init__	generate_holidays.py	/^    def __init__(self, years=[], expand=True, observed=True,$/;"	m	class:HolidayBase
+__keytransform__	generate_holidays.py	/^    def __keytransform__(self, key):$/;"	m	class:HolidayBase
+__logger	sql_server_query_runner.py	/^__logger = None$/;"	v
+__ne__	generate_holidays.py	/^    def __ne__(self, other):$/;"	m	class:HolidayBase
+__radd__	generate_holidays.py	/^    def __radd__(self, other):$/;"	m	class:HolidayBase
+__setattr__	generate_holidays.py	/^    def __setattr__(self, key, value):$/;"	m	class:HolidayBase
+__setitem__	generate_holidays.py	/^    def __setitem__(self, key, value):$/;"	m	class:HolidayBase
+__version__	no_market_holidays	/^__version__=0.02$/;"	v
+__version__	no_market_holidays.py	/^__version__=0.02$/;"	v
+_filter	no_market_holidays	/^def _filter(date_input, converted_holidays):$/;"	f
+_filter	no_market_holidays.py	/^def _filter(date_input, converted_holidays):$/;"	f
+_gen_holidays	no_market_holidays	/^def _gen_holidays(start_year, end_year):$/;"	f
+_gen_holidays	no_market_holidays.py	/^def _gen_holidays(start_year, end_year):$/;"	f
+_get_gzip_uncompressed_file_size	gzip_utility.py	/^def _get_gzip_uncompressed_file_size(file_name):$/;"	f
+_holidays	no_market_holidays	/^_holidays = _gen_holidays(2003,2025)$/;"	v
+_holidays	no_market_holidays.py	/^_holidays = _gen_holidays(2003,2025)$/;"	v
+_populate	generate_holidays.py	/^    def _populate(self, year):$/;"	m	class:HolidayBase
+_populate	generate_holidays.py	/^    def _populate(self, year):$/;"	m	class:NYSEMarketHoliday
+append	generate_holidays.py	/^    def append(self, *args):$/;"	m	class:HolidayBase
+audience_memcached_nodes	sql_server_query_runner.py	/^audience_memcached_nodes = {$/;"	v
+chronos_server	sql_server_query_runner.py	/^chronos_server = {$/;"	v
+convert_to_date	no_market_holidays	/^def convert_to_date(holidays):$/;"	f
+convert_to_date	no_market_holidays.py	/^def convert_to_date(holidays):$/;"	f
+d	datesJesus	/^    d = d + delta$/;"	v
+d	datesJesus	/^d = start$/;"	v
+d	workdates	/^    d = d + delta$/;"	v
+d	workdates	/^d = start$/;"	v
+d	workdates.py	/^    d = d + delta$/;"	v
+d	workdates.py	/^d = start$/;"	v
+dates_input	datesJesus	/^dates_input = []$/;"	v
+dates_input	workdates	/^dates_input = []$/;"	v
+dates_input	workdates.py	/^dates_input = []$/;"	v
+dates_output	datesJesus	/^dates_output = no_market_holidays.filter_dates(source_input = dates_input)$/;"	v
+dates_output	workdates	/^dates_output = no_market_holidays.filter_dates(source_input = dates_input)$/;"	v
+dates_output	workdates.py	/^dates_output = no_market_holidays.filter_dates(source_input = dates_input)$/;"	v
+datetime_rescue	no_market_holidays	/^def datetime_rescue(date_input):$/;"	f
+datetime_rescue	no_market_holidays.py	/^def datetime_rescue(date_input):$/;"	f
+db_connections	sql_server_query_runner.py	/^db_connections = {$/;"	v
+dbclient	sql_server_query_runner.py	/^def dbclient(connect_string):$/;"	f
+debug	datesJesus	/^debug = bool(os.environ.get("DEBUG",None))$/;"	v
+debug	sql_server_query_runner.py	/^    def debug(self, msg):$/;"	m	class:DummyLogger
+debug	workdates	/^debug = bool(os.environ.get("DEBUG",None))$/;"	v
+debug	workdates.py	/^debug = bool(os.environ.get("DEBUG",None))$/;"	v
+delta	datesJesus	/^delta = datetime.timedelta(days=1)$/;"	v
+delta	workdates	/^delta = datetime.timedelta(days=1)$/;"	v
+delta	workdates.py	/^delta = datetime.timedelta(days=1)$/;"	v
+do_ran	rand_cmd	/^function do_ran(){$/;"	f
+echo_lv	common	/^function echo_lv(){$/;"	f
+end	datesJesus	/^end = datetime.datetime.strptime(end_str, '%Y%m%d')$/;"	v
+end	workdates	/^end = datetime.datetime.strptime(end_str, '%Y%m%d')$/;"	v
+end	workdates.py	/^end = datetime.datetime.strptime(end_str, '%Y%m%d')$/;"	v
+end_str	datesJesus	/^    end_str=sys.argv[2]$/;"	v
+end_str	workdates	/^    end_str=sys.argv[2]$/;"	v
+end_str	workdates.py	/^    end_str=sys.argv[2]$/;"	v
+filter_dates	no_market_holidays	/^def filter_dates(source_input= sys.stdin, converted_holidays = _holidays):$/;"	f
+filter_dates	no_market_holidays.py	/^def filter_dates(source_input= sys.stdin, converted_holidays = _holidays):$/;"	f
+gen_chrismas_day	generate_holidays.py	/^    def gen_chrismas_day(self):$/;"	m	class:NYSEMarketHoliday
+gen_good_friday	generate_holidays.py	/^    def gen_good_friday(self):$/;"	m	class:NYSEMarketHoliday
+gen_independence_day	generate_holidays.py	/^    def gen_independence_day(self):$/;"	m	class:NYSEMarketHoliday
+gen_labor_day	generate_holidays.py	/^    def gen_labor_day(self):$/;"	m	class:NYSEMarketHoliday
+gen_martin_luther_king_day	generate_holidays.py	/^    def gen_martin_luther_king_day(self):$/;"	m	class:NYSEMarketHoliday
+gen_memorial_day	generate_holidays.py	/^    def gen_memorial_day(self):$/;"	m	class:NYSEMarketHoliday
+gen_new_year_day	generate_holidays.py	/^    def gen_new_year_day(self):$/;"	m	class:NYSEMarketHoliday
+gen_thanks_giving	generate_holidays.py	/^    def gen_thanks_giving(self):$/;"	m	class:NYSEMarketHoliday
+gen_washington_birthday	generate_holidays.py	/^    def gen_washington_birthday(self):$/;"	m	class:NYSEMarketHoliday
+get	generate_holidays.py	/^    def get(self, key, default=None):$/;"	m	class:HolidayBase
+get_beeline_cmd_params	sql_server_query_runner.py	/^def get_beeline_cmd_params(dc, hive_server_conf=hive_servers):$/;"	f
+get_datacenters	sql_server_query_runner.py	/^def get_datacenters():$/;"	f
+get_holidays	no_market_holidays	/^def get_holidays(year):$/;"	f
+get_holidays	no_market_holidays.py	/^def get_holidays(year):$/;"	f
+get_list	generate_holidays.py	/^    def get_list(self, key):$/;"	m	class:HolidayBase
+get_random_hive_host	sql_server_query_runner.py	/^def get_random_hive_host(dc=None):$/;"	f
+get_sources	sql_server_query_runner.py	/^def get_sources():$/;"	f
+getlogger	sql_server_query_runner.py	/^def getlogger():$/;"	f
+graphite_hosts	sql_server_query_runner.py	/^graphite_hosts = {$/;"	v
+graphite_stores	sql_server_query_runner.py	/^graphite_stores = {$/;"	v
+hdfs_config	sql_server_query_runner.py	/^hdfs_config = {$/;"	v
+hdfs_web_config	sql_server_query_runner.py	/^hdfs_web_config = {$/;"	v
+hive_metastore_services	sql_server_query_runner.py	/^hive_metastore_services = {$/;"	v
+hive_servers	sql_server_query_runner.py	/^hive_servers = {$/;"	v
+holidays	generate_holidays.py	/^        holidays = NYSEMarketHoliday(years= year, state="NY")$/;"	v
+impala_statestore	sql_server_query_runner.py	/^impala_statestore = {$/;"	v
+info	sql_server_query_runner.py	/^    def info(self, msg):$/;"	m	class:DummyLogger
+is_secure	sql_server_query_runner.py	/^def is_secure(dc=None):$/;"	f
+jdbc_connect	sql_server_query_runner.py	/^def jdbc_connect(datacenter, database):$/;"	f
+job_history_servers	sql_server_query_runner.py	/^job_history_servers = {$/;"	v
+krb_config	sql_server_query_runner.py	/^krb_config = {$/;"	v
+mesos_server	sql_server_query_runner.py	/^mesos_server = {$/;"	v
+nameservices	sql_server_query_runner.py	/^nameservices = {$/;"	v
+parser	no_market_holidays	/^import dateutil.parser as parser$/;"	I
+parser	no_market_holidays.py	/^import dateutil.parser as parser$/;"	I
+pop	generate_holidays.py	/^    def pop(self, key, default=None):$/;"	m	class:HolidayBase
+pyodbc_connect	sql_server_query_runner.py	/^def pyodbc_connect(datacenter, database=None):$/;"	f
+rd	generate_holidays.py	/^from dateutil.relativedelta import relativedelta as rd$/;"	x
+remotedc	sql_server_query_runner.py	/^def remotedc():$/;"	f
+res	no_market_holidays	/^   res = filter_dates()$/;"	v
+res	no_market_holidays.py	/^   res = filter_dates()$/;"	v
+resource_managers	sql_server_query_runner.py	/^resource_managers = {$/;"	v
+start	datesJesus	/^start = datetime.datetime.strptime(start_str, '%Y%m%d')$/;"	v
+start	workdates	/^start = datetime.datetime.strptime(start_str, '%Y%m%d')$/;"	v
+start	workdates.py	/^start = datetime.datetime.strptime(start_str, '%Y%m%d')$/;"	v
+thisdc	sql_server_query_runner.py	/^def thisdc():$/;"	f
+throwError	weekdays_between	/^function throwError(){$/;"	f
+timethis	timethis.py	/^def timethis(func, *args):$/;"	f
+update	generate_holidays.py	/^    def update(self, *args):$/;"	m	class:HolidayBase
+utility	README.md	/^# utility$/;"	c
+weekend	datesJesus	/^weekend = set([5, 6])$/;"	v
+weekend	workdates	/^weekend = set([5, 6])$/;"	v
+weekend	workdates.py	/^weekend = set([5, 6])$/;"	v
+whichdc	sql_server_query_runner.py	/^def whichdc(url, defaultdc=None):$/;"	f
+year	generate_holidays.py	/^        year = int(sys.argv[1])$/;"	v

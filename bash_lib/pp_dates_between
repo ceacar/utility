@@ -8,5 +8,5 @@ endDate=$2
 d=$startDate
 while [ "$d" != "$endDate" ]; do
   echo $d
-  d=$(date +%Y%m%d -d "$d + 1 day")
+  d=$(date +%Y-%m-%d -d "$d + 1 day")
 done

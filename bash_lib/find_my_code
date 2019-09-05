@@ -1,10 +1,11 @@
 #!/bin/bash
 #this script will search all directory defined in env var $MY_SOURCE_CODE_DIR and find any code contains the keyword
-source common
-code=${1:?code_signature empty}
-list_file_only=${2:false}
-if $list_file_only;then
-  search_code_base $MY_SOURCE_CODE_DIR $code
-else
-  search_code_base $MY_SOURCE_CODE_DIR $code | grep "<<<"
-fi
+#MY_SOURCE_CODE_DIR="test_path1:test_path2"
+code_signature=${1:?code_signature empty}
+
+IFS=:
+for tmp_path in $MY_SOURCE_CODE_DIR;do
+  echo "searching $tmp_path"
+  find $tmp_path -type f | egrep -v '.git|.swp$|.pyc$|.javac$|.pack$' | parallel "cat {}|grep -C 2 \"$code_signature\" && echo \"-------------\""
+done
+
