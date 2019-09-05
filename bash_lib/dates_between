@@ -1,12 +1,15 @@
 #!/bin/bash
-
+set -feo pipefail
 
 #example input : 20150101   yyyymmdd
-startDate=$1
-endDate=$2
+startDate=${1:?startDate cannot be empty}
+endDate=${2:?endDate cannot be empty}
+custom_format=${3:-%Y%m%d}
 
 d=$startDate
+custom_d=$(date +${custom_format} -d "$d")
 while [ "$d" != "$endDate" ]; do
-  echo $d
+  echo $custom_d
   d=$(date +%Y%m%d -d "$d + 1 day")
+  custom_d=$(date +${custom_format} -d "${custom_d} + 1 day")
 done

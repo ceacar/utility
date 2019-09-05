@@ -7,3 +7,32 @@ function echo_lv(){
   printf "$echo_delim%.0s" $(seq $echo_level)
   echo "$echo_content"
 }
+
+function search_code_base(){
+  local search_dir=${1:?search_dir cannot be empty}
+  local code_signature=${2:?code_signature cannot be empty}
+  IFS=:
+  echo "search_dir is $search_dir"
+  for tmp_path in $search_dir;do
+    #expand ~ for path
+    eval tmp_path=$tmp_path
+    echo ">>>searching dir $tmp_path"
+    echo ""
+    find $tmp_path -type f | grep -v ".git\|lodash\|.pyc\|node_modules\|.gradle\|temp\|.swp$"|parallel "cat {}|grep -C 2 \"$code_signature\" && echo \"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<{}\" && echo \"\""
+  done
+}
+
+function find_classes_and_methods(){
+  local search_dir=${1:?search_dir cannot be empty}
+  local code_signature=${2:?code_signature cannot be empty}
+  IFS=:
+  echo "search_dir is $search_dir"
+  for tmp_path in $search_dir;do
+    #expand ~ for path
+    eval tmp_path=$tmp_path
+    echo ">>>searching dir $tmp_path"
+    echo ""
+    find $tmp_path -type f | grep -v ".git\|lodash\|.pyc\|node_modules\|.gradle\|temp\|.swp$"|parallel "cat {}|grep \"$code_signature\" |grep \"class\|def \|function \|func \" && echo \"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<{}\" && echo \"\""
+  done
+}
+
