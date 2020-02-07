@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# make sure you have user environment in crontab
+source ~/.bashrc
+set -e
+
+commit_file=${1:?commit_file cannot be empty}
+
+datetime_now="$(date +%Y%m%d%H%M%S)"
+
+for path in $(cat $commit_file);do
+  echo "cd to $path"
+  cd $path
+  GIT_COMMITTER_DATE="$(date)"
+  # if no new commit, continue
+  git log --branches --not --remotes | grep commit || continue
+  echo "commiting $GIT_COMMITTER_DATE"
+  git commit --amend --no-edit --date "$GIT_COMMITTER_DATE"
+  echo "pushing"
+  git_push_to_branch
+done
+
+ls $commit_file >/dev/null && mv $commit_file "$commit_file.commited.$datetime_now"

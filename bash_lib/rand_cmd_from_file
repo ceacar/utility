@@ -1,0 +1,21 @@
+#!/bin/bash
+
+file_input=${1:-file_input empty}
+PERSISTENT_DIR=~/.persistent_history
+function do_ran(){
+  random_line=$(shuf -n 1 $file_input)
+  random_cmd="$(echo $random_line | cut -d ' ' -f4-)"
+  # now_date_string=$(date '+%Y%m%d %H:%M:%S')
+  # echo "$path_prex $now_date_string $cmd_string" >> ~/$PERSISTENT_DIR/persistent_history
+  echo "running $random_cmd"
+  $random_cmd
+}
+
+cd $aggr
+source ~/.bashrc
+while true;do
+  do_ran
+  sleep_time=$(shuf -i 1-2400 -n 1)
+  echo "sleeping $sleep_time"
+  sleep $sleep_time
+done

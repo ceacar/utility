@@ -1,0 +1,33 @@
+#!/usr/env/bin bash
+s3_url={1:?url cannot be empty, url need tobe like s3://someurl}
+regex_pattern={2:?regex_pattern cannot be empty}
+profile={3:-""}
+
+if [[ $profile ]];then
+  profile_appendix="--profile=$profile"
+else
+  profile_appendix=""
+fi
+
+#aws s3 ls --recursive s3://drg-analytics-data-samples-2019/ --profile=drg|grep 'data_0_0_0.csv.gz'|sed 's/[[:space:]|cut -d ',' -f4|rev | cut -d '/' -f 2-|rev| xargs -I {} bash -c 'echo "{}"; aws s3 cp s3://drg-analytics-data-samples-2019/{}/data_0_0_0.csv.gz {}/ --profile=drg'
+# aws s3 ls --recursive ${s3_url} ${profile_appendix}\
+# | grep "$regex_pattern" \ # grep the regex pattern
+# |sed 's/[[:space:] \ # remove multiple spaces
+# |cut -d ',' -f4 \ # takes only the dir
+# |rev | cut -d '/' -f 2-|rev \ # takes the all fields except the last(directory path)
+# | xargs -I {} bash -c 'echo \'{}\'; aws s3 cp s3://drg-analytics-data-samples-2019/{}/data_0_0_0.csv.gz {}/ --profile=drg'
+
+echo "aws s3 ls --recursive ${s3_url} ${profile_appendix}\
+| grep \"$regex_pattern\" \ # grep the regex pattern
+|sed 's/[[:space:] \ # remove multiple spaces
+|cut -d ',' -f4 \ # takes only the dir
+|rev | cut -d '/' -f 2-|rev \ # takes the all fields except the last(directory path)
+| xargs -I {} bash -c "mkdir -p {}"
+
+# TODO:
+# echo "aws s3 ls --recursive ${s3_url} ${profile_appendix}\
+# | grep \"$regex_pattern\" \ # grep the regex pattern
+# |sed 's/[[:space:] \ # remove multiple spaces
+# |cut -d ',' -f4 \ # takes only the dir
+# |rev | cut -d '/' -f 2-|rev \ # takes the all fields except the last(directory path)
+# | xargs -I {} bash -c 'echo \'{}\'; aws s3 cp ${s3_url}/{}/data_0_0_0.csv.gz {}/ --profile=drg'"

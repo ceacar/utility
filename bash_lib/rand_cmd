@@ -1,10 +1,11 @@
 #!/bin/bash
 #/dev/pts/1 20170717 17:15:27 ls
+PERSISTENT_DIR~/.persistent_history
 function do_ran(){
   lottery=$(shuf -i 1-5000 -n 1)
-  cat ~/.persis_history/persistent_history|tail -$lottery|head -1| while read path_prex date_string time_string cmd_string;do
+  cat ~/$PERSISTENT_DIR/persistent_history|tail -$lottery|head -1| while read path_prex date_string time_string cmd_string;do
     now_date_string=$(date '+%Y%m%d %H:%M:%S')
-    echo "$path_prex $now_date_string $cmd_string" >> ~/.persis_history/persistent_history
+    echo "$path_prex $now_date_string $cmd_string" >> ~/$PERSISTENT_DIR/persistent_history
   done
 }
 

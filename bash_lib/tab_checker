@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+if awk '{exit !/\t/}'; then
+  echo "tab deliminited"
+else
+  echo "nope"
+fi

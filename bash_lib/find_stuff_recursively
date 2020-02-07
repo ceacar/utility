@@ -1,0 +1,6 @@
+#!/bin/bash
+#this script will search all directory defined in env var $MY_SOURCE_CODE_DIR and find any code contains the keyword
+source common
+path=${2:-$PWD}
+text_signature=${1:?code_signature empty}
+search_code_base $path $text_signature

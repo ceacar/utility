@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+path=${1:?path not set}
+days=${2-30}
+if [[ "$path" != "/" ]];then
+  echo "find  ${path} -type f -mtime +${days} -exec rm -f {} \;"
+  find  ${path} -type f -mtime +${days} -exec rm -f {} \;
+else
+  echo "cowardly refuse to delete root files"
+fi
